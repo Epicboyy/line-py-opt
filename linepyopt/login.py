@@ -7,7 +7,7 @@ def token_login(token, poll=False):
 	headers = LineWrapper.init_headers()
 	headers["X-Line-Access"] = token
 	if poll:
-		endpoint = Config.poll_endpoint
+		endpoint = Config.longpoll_endpoint
 	else:
 		endpoint = Config.normal_endpoint
 	client = TalkService.Client(LineWrapper.get_protocol(endpoint, headers))
