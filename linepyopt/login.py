@@ -11,7 +11,7 @@ def token_login(token, poll=False):
 	else:
 		endpoint = Config.normal_endpoint
 	client = TalkService.Client(LineWrapper.get_protocol(endpoint, headers))
-	client.authToken = authToken
+	client.authToken = token
 	return client
 
 
