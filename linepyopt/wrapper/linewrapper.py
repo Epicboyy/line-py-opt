@@ -17,7 +17,7 @@ class LineWrapper:
 	@staticmethod
 	def get_protocol(endpoint, headers):
 		headers["x-lpqs"] = endpoint
-		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers=headers)
+		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers)
 		return protocol
 
 	@staticmethod
@@ -28,7 +28,7 @@ class LineWrapper:
 			"x-lal": "ja-JP_JP",
 			"X-Line-Access": verifier
 		}
-		result = requests.get(Config.host + Config.wait_endpoint, headers)
+		result = requests.get(Config.host + Config.wait_endpoint, headers=headers)
 		return result.json()
 
 	@staticmethod
