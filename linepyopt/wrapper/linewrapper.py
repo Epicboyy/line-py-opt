@@ -4,7 +4,7 @@ from ..config import Config
 import requests
 
 
-class LineWrapper(ThriftWrapper):
+class LineWrapper:
 	@staticmethod
 	def init_headers():
 		headers = {
@@ -17,7 +17,7 @@ class LineWrapper(ThriftWrapper):
 	@staticmethod
 	def get_protocol(endpoint, headers):
 		headers["x-lpqs"] = endpoint
-		protocol = super().get_protocol(Config.host, endpoint, headers)
+		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers)
 		return protocol
 
 	@staticmethod
