@@ -17,7 +17,7 @@ class LineWrapper:
 	@staticmethod
 	def get_protocol(endpoint, headers):
 		headers["x-lpqs"] = endpoint
-		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers)
+		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers=headers)
 		return protocol
 
 	@staticmethod
