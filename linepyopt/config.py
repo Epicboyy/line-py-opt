@@ -1,5 +1,5 @@
 class Config:
-	host = "https://lagy-jp.line.naver.jp"
+	host = "https://legy-jp.line.naver.jp"
 	normal_endpoint = "/S4"
 	register_endpoint = "/api/v4/TalkService.do"
 	wait_endpoint = "/Q"
