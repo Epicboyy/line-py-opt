@@ -19,13 +19,15 @@ class LineWrapper:
 		headers["x-lpqs"] = endpoint
 		protocol = ThriftWrapper.get_protocol(Config.host, endpoint, headers)
 		return protocol
-	
-	_initheaders = init_headers.__func__()
 
 	@staticmethod
 	def wait_login(verifier):
-		headers = _initheaders
-		headers["X-Line-Access"] = verifier
+		headers = {
+			"User-Agent": Config.user_agent,
+			"X-Line-Application": Config.line_app,
+			"x-lal": "ja-JP_JP",
+			"X-Line-Access": verifier
+		}
 		result = requests.get(Config.host + Config.wait_endpoint, headers)
 		return result.json()
 
